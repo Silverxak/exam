@@ -1,0 +1,239 @@
+span{
+    font-family: Lobster, 'Comic Sans MS', Georgia, 'Times New Roman', Times;
+}
+
+/*----------Header----------*/
+
+.gen{
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	background-image: url(bgr.png);
+}
+
+#logo{
+	position: absolute;
+	margin: 10px 10px 10px 15px;
+	z-index: 1;
+}
+
+#application{
+	position: absolute;
+	margin: 13px 10px 10px 60px;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	z-index: 1;
+}
+
+.header{
+	width: 800px;
+	height: 60px;
+	background: #dadada;
+	opacity: 0.7;
+}
+	.header #soiskatel{
+		font-size: 24px;
+		font-weight: bold;
+		opacity: 0.5;
+		float: right;
+		position: relative;
+		margin: 15px 15px;
+	}
+
+.brd{
+	width: 800px;
+	height: 10px;
+	background: #dadada;
+}
+
+#addBtn{
+	position: relative;
+    left: -3px;
+}
+
+#addBtn img{
+	cursor: pointer;
+}
+
+
+
+
+/*----------Body----------*/
+
+.main{
+	margin: 0 20px 20px 20px;
+}
+
+ul.nav {
+	margin: 0;
+	padding: 0;
+   }
+
+   ul.nav li {
+    margin: 5px -5px -3px -5px;
+    list-style:none;
+    display:inline-block;
+    background: #dadada;
+    position:relative;
+    opacity: 0.3;
+    border-top: 3px white solid;
+    border-left: 3px white solid;
+    border-right: 3px white solid;
+   }
+
+   li a{
+    color:#222;
+    padding:5px 7px;
+    text-decoration:none;
+    display:block;
+    cursor: pointer;
+}
+
+  ul.nav li:hover{
+    opacity: 0.7;
+    border-bottom: 3px #dadada solid;
+    border-bottom: none;
+    padding-bottom: 3px;
+    z-index: 2;
+    }
+
+.active{
+  z-index: 3;
+  border-top-left-radius: 20px;
+  opacity: 1 !important;
+  border-top: 3px white solid;
+  border-left: 3px white solid;
+  border-right: 3px white solid;
+  border-bottom: none;
+  padding-bottom: 3px;
+  }
+
+
+  #square {
+    background: #dadada;
+    border: 3px white solid;
+    width: 750px;
+    height: 300px;
+    position: absolute;
+    left: 15px;
+    border-bottom-right-radius: 20px;
+}
+
+.content{
+  margin: 15px;
+  display: none;
+  z-index: 5;
+}
+
+#list{
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+  
+  #list th, td{
+    border: 1px #767676 solid;
+    padding: 5px;
+    text-align: center;
+  }
+
+  #list td img{
+    padding: 5px;
+    cursor: pointer;
+  }
+
+
+/*----------Popup----------*/
+
+#popup{
+    display: none;
+    position: absolute;
+    z-index: 5;
+}
+
+#lock{
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+#dialog{
+    z-index: 10;
+    position: absolute;
+    z-index: 10;
+    position: absolute;
+    top: 75px;
+    left: 30px;
+}
+
+    #dialog #btnFalse{
+        top: 215px;
+        left: 380px;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    #dialog span{
+        position: absolute;
+        font-size: 24px;
+        color: white;
+    }
+
+    #dialog #ds{
+        position: absolute;
+        top: 5px;
+        left: 143px;
+    }
+
+    #dialog input{
+        border-radius: 5px;
+        position: absolute;
+        color: #4d59a1;
+        height: 24px;
+        font-size: 24px;
+        width: 200px;
+        outline: none;
+    }
+
+    #dialog #fname{
+        top: 70px;
+        left: 150px;
+    }
+
+    #dialog #fsname{
+        top: 115px;
+        left: 150px;
+    }
+
+    #dialog #dsn{
+        top: 110px;
+        left: 30px;
+    }
+
+    #dialog #dn{
+        top: 65px;
+        left: 85px;
+    }
+
+    #dialog #btnTrue{
+        width: 65px;
+        height: 35px;
+        position: absolute;
+        background: #dadada;
+        border-radius: 5px;
+        top: 170px;
+        left: 220px;
+        text-align: center;
+        display: flex;
+        cursor: pointer;
+    }
+
+    #dialog #btnTrue a{
+        font-size: 24px;
+        color: #4d59a1;
+        font-weight: bold;
+        margin: auto;
+    }

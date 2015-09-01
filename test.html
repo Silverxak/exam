@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="markup.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<title>test</title>
+</head>
+<body>
+	<div class="gen">
+		<div>
+			<div id="popup">
+				<div id="lock" onclick="$('#popup').hide();"></div>
+				<div id="dialog">
+					<img src="dialog.png">
+					<img id="btnFalse" src="btnFalse.png" onclick="$('#popup').hide();">
+					<span id="ds">Добавить соискателя</span>
+					<span id="dn">Имя:</span>
+					<span id="dsn">Фамилия:</span>
+					<input id="fname" type="text">
+					<input id="fsname" type="text">
+					<div id="btnTrue" onclick="addMember();"><a>Ok</a></div>
+				</div>
+			</div>
+			<header>
+				<img src="logo.png" id="logo">
+				<span id="application">Приложение</span>
+				<div class="header">
+					<span id="soiskatel">"Соискатели"</span>
+				</div>
+				<div class="brd"></div>
+			</header>	
+
+			<div id="addBtn">
+				<img src="addBtn.png" onclick="dialogNewMember();">
+			</div>
+
+		</div>
+
+
+		<div class="main">
+			<ul class="nav">
+				<li class="tab active"><a>Соискатели</a></li>
+				<li class="tab"><a>Настройки</a></li>
+			</ul>
+
+			<div id="square">
+				<div class="content" id="applicant" style="display: block;">
+					Соискатели:
+					<table id="list">
+						<tr>
+							<th>id</th><th>name</th><th>surname</th><th>action</th>
+						</tr>
+					</table>
+				</div>
+				<div class="content">
+					text settings
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+var uid;
+
+$(document).ready(function(){  
+
+	$('ul.nav').each(function(){
+	$(this).find('li').each(function(i){
+		$(this).click(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			var p = $('div#square');
+	        p.find('div.content').hide();
+	        p.find('div.content:eq(' + i + ')').show();
+			});
+		});
+	});
+
+	$.getJSON('http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants', function(data){
+	  var i;
+	  for(i = 0; i < data.length; i++)
+	    $('<tr><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].surname + '</td><td><img src="delete.png" class="rm"><img src="edit.png" class="ed"></td></tr>').appendTo('#list');
+	});
+
+	$(function(){
+    $('table').on('click', '.rm', function(){
+    	if(confirm('Вы уверены, что хотите удалить: ' + $(this).closest('tr').find('td:eq(1)').text() + ' ' + $(this).closest('tr').find('td:eq(2)').text() + ' ?')){
+			$.ajax({
+			    type: 'DELETE',
+			    url: 'http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants/' + $(this).closest('tr').find('td:first').text()
+			});
+			$(this).closest('tr').remove();
+    	}
+    	});
+	});
+
+	$(function(){
+	    $('table').on('click', '.ed', function(){
+
+	    	uid = $(this).closest('tr').find('td:first').text();
+
+	    	var fname = $('#fname').val($(this).closest('tr').find('td:eq(1)').text());
+	    	var fsname = $('#fsname').val($(this).closest('tr').find('td:eq(2)').text());
+
+	    	$('#popup').show();
+
+	    	$(this).closest('tr').find('td:eq(1)').text($('#fname').val());
+	    	$(this).closest('tr').find('td:eq(2)').text($('#fsname').val());
+
+	    	$('#btnTrue').attr('onclick', 'editMember();');
+
+	    });
+	});
+
+});
+
+
+function addMember(arg, uid){
+	if($('#fname').val() && $('#fsname').val()){
+		var fname = $('#fname').val();
+		var fsname = $('#fsname').val();
+		$.ajax({
+			url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants",
+			type: "POST",
+			ContentType: "application/json",
+			data: ({ name: fname, surname: fsname}),
+			success: function(msg){
+				$('#popup').hide();
+				$('<tr><td>' + msg.id + '</td><td>' + fname + '</td><td>' + fsname + '</td><td><img src="delete.png" class="rm"><img src="edit.png" class="ed"></td></tr>').appendTo('#list');
+				$('#fname').val('');
+				$('#fsname').val('');
+			}
+		});
+	}
+}
+
+	function editMember(){
+		var fname = $('#fname').val();
+    	var fsname = $('#fsname').val();
+		if(fname && fsname){
+			$.ajax({
+				url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants/" + uid,
+				type: "PUT",
+				ContentType: "application/json",
+				data: ({ name: fname, surname: fsname}),
+				success: function(){
+					$('table').find('tr').find('td:first:contains("' + uid + '") ~ td:eq(0)').text(fname);
+					$('table').find('tr').find('td:first:contains("' + uid + '") ~ td:eq(1)').text(fsname);
+					$('#popup').hide();
+				}
+			});
+		}
+		else{
+			alert('Ошибка ! Проверьте поля имени и фамилии.');
+		}
+	}
+
+	function dialogNewMember(){
+		$('#popup').show();
+    	$('#fname').val(''); 
+    	$('#fsname').val('');
+    	$('#btnTrue').attr('onclick', 'addMember();');
+	}
+
+//$.post( "http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants", { id: "1", name: "Andrew", surname: "Mudrakov"} );
+
+/*
+$.ajax({
+    type: 'DELETE',
+    url: 'http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants/' + $('#list tr td:first').text()
+});
+*/
+
+</script>
+
+
+</html>
