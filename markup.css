@@ -1,14 +1,87 @@
-span{
+span, div{
     font-family: Lobster, 'Comic Sans MS', Georgia, 'Times New Roman', Times;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    footwidth: 800px;
+    height: 600px;
+}
+
+/*----------Settings----------*/
+
+
+.setpat{
+    display: inline-flex;
+}
+
+.setpat div{
+    font-size: 24px;
+    color: #4b78bb;
+    margin-right: 40px;
+}
+
+.setpat input{
+    border-radius: 5px;
+    color: #4d59a1;
+    height: 24px;
+    font-size: 24px;
+    width: 200px;
+    outline: none;    
+}
+
+.setcol{
+    display: inline-flex;
+    height: 100px;
+    width: auto;
+}
+
+.curcol{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.curcol:hover{
+    box-shadow: 0 0 5px 2px;
+}
+
+.aplcol{
+    background-color: #4b78bb;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    left: 500px;
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.aplcol:hover{
+    box-shadow: 0 0 5px 2px;
+}
+
+.aplcol a{
+    margin: auto;
+    color: #dadada;
 }
 
 /*----------Header----------*/
 
 .gen{
-	position: absolute;
-	width: 800px;
-	height: 600px;
-	background-image: url(bgr.png);
+    position: absolute;
+    width: 800px;
+    height: 680px;
+    background-image: url(texture.png);
 }
 
 #logo{
@@ -65,13 +138,58 @@ span{
 	margin: 0 20px 20px 20px;
 }
 
+
+.footer{
+    width: 800px;
+    height: 90px;
+    margin-top: 340px;
+}
+.footer ul{
+    margin-top: 110px;;
+    position: absolute;
+    padding-left: 20px;
+}
+
+.footer li{
+    display: flex;
+    color: white;
+}
+
+.footer li .abt{
+    width: auto;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.footer li .hcj{
+    margin-right: 10px;
+    width: 70px;
+    position: relative;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+}
+
+.footer li #jquery{
+    background-color: #4b78bb
+}
+
+#jquery a{
+    color: white;
+}
+
+.footer li a{
+    padding: 0;
+}
+
 ul.nav {
 	margin: 0;
 	padding: 0;
    }
 
    ul.nav li {
-    margin: 5px -5px -3px -5px;
+    margin: 5px -2px -3px -5px;
     list-style:none;
     display:inline-block;
     background: #dadada;
@@ -83,11 +201,12 @@ ul.nav {
    }
 
    li a{
-    color:#222;
+    color: #4b78bb;
     padding:5px 7px;
     text-decoration:none;
     display:block;
     cursor: pointer;
+    font-weight: bold;
 }
 
   ul.nav li:hover{
@@ -109,15 +228,39 @@ ul.nav {
   padding-bottom: 3px;
   }
 
+#trmsg{
+color: green;
+position: absolute;
+top: 20px;
+left: 150px; 
+display: none;       
+}  
+
 
   #square {
     background: #dadada;
     border: 3px white solid;
     width: 750px;
-    height: 300px;
+    height: 440px;
     position: absolute;
     left: 15px;
     border-bottom-right-radius: 20px;
+}
+
+
+.kubik{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.kubik.r{
+    background-color: red;
+}
+
+.kubik.g{
+    background-color: green;
 }
 
 .content{
@@ -129,18 +272,56 @@ ul.nav {
 #list{
   border-collapse: collapse;
   margin-top: 5px;
+  width: 700px;
 }
+
+    #list tr th{
+        color: #4b78bb;
+    }
+
+    #list th:first{
+        border-top-left-radius: 20px;
+    }
   
-  #list th, td{
+    #list th, td{
     border: 1px #767676 solid;
     padding: 5px;
     text-align: center;
-  }
+    }
 
-  #list td img{
+    #list td img{
     padding: 5px;
     cursor: pointer;
-  }
+    }
+
+.about li{
+    display: flex;
+    color: #737373;
+}
+
+.about a{
+    margin: 0 20px 0 0;
+    padding: 0;
+    text-decoration: underline;
+    color: #737373;
+}
+
+.about img{
+    margin: 10px 0px 10px;
+}
+
+.about ul{
+    float: right;
+    margin-right: 130px;
+    position: relative;
+    margin-top: 10px;
+}
+
+li .abt{
+    width: 100px;
+    font-weight: bold;
+    color: #4b78bb;
+}
 
 
 /*----------Popup----------*/
@@ -153,7 +334,7 @@ ul.nav {
 
 #lock{
     width: 800px;
-    height: 600px;
+    height: 680px;
     position: absolute;
     background-color: white;
     opacity: 0.5;
@@ -169,6 +350,13 @@ ul.nav {
     left: 30px;
 }
 
+    #dialog #errmsg{
+        color: red;
+        position: relative;
+        font-size: 16px;        bottom: 200px;
+        left: 60px;
+        display: none;
+    }
     #dialog #btnFalse{
         top: 215px;
         left: 380px;

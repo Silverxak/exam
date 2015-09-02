@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="markup.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="app.js"></script>
+	<title>test</title>
+</head>
+<body>
+	<div class="gen">
+		<div>
+			<div id="popup">
+				<div id="lock" onclick="$('#popup').hide();"></div>
+				<div id="dialog">
+					<img src="dialog.png">
+					<img id="btnFalse" src="btnFalse.png" onclick="$('#popup').hide();">
+					<span id="ds">Добавить соискателя</span>
+					<span id="errmsg">Добавить соискателя</span>
+					<span id="dn">Имя:</span>
+					<span id="dsn">Фамилия:</span>
+					<input id="fname" type="text">
+					<input id="fsname" type="text">
+					<div id="btnTrue" onclick="addMember();"><a>Ok</a></div>
+				</div>
+			</div>
+			<header>
+				<img src="logo.png" id="logo">
+				<span id="application">Приложение</span>
+				<div class="header">
+					<span id="soiskatel">"Соискатели"</span>
+				</div>
+				<div class="brd"></div>
+			</header>	
+
+			<div id="addBtn">
+				<img src="addBtn.png" onclick="dialogNewMember();">
+			</div>
+
+		</div>
+
+
+		<div class="main">
+			<ul class="nav">
+				<li class="tab active"><a>Соискатели</a></li>
+				<li class="tab"><a>Настройки</a></li>
+				<li class="tab"><a>Об авторе</a></li>
+			</ul>
+
+			<div id="square">
+				<div class="content" id="applicant" style="display: block;">
+					<h3>Соискатели:</h3>
+					<span id="trmsg"></span>
+					<table id="list">
+						<tr>
+							<th>id</th><th>name</th><th>surname</th><th>action</th>
+						</tr>
+					</table>
+				</div>
+				<div class="content">
+					<h3>Паттерн валидации ФИО:</h3>
+					<div class="setpat">
+						<div class="pattern">Паттерн:<input type="text" id="pattern"></div>
+						<div class="testpat">Проверка:<input type="text" id="testpat"></div>
+					</div>
+					<div style="display: inline-flex; margin-top: 15px;">
+						<div style="display: flex; margin-right: 100px;"><div class="kubik g"></div><i style="color: #4b78bb;"> - Валиден</i></div>
+						<div style="display: flex; margin-right: 100px;"><div class="kubik r"></div><i style="color: #4b78bb;"> - Невалиден</i></div>
+					</div>
+					<h3>Цвет фона:</h3>
+					<div class="setcol">
+						<div class="curcol" style="background-color: white;"></div>
+						<div class="curcol" style="background-color: green;"></div>
+						<div class="curcol" style="background-color: yellow;"></div>
+						<div class="curcol" style="background-color: red;"></div>
+						<div class="curcol" style="background-color: purple;"></div>
+						<div class="curcol" style="background-color: orange;"></div>
+						<div class="curcol" style="background-color: blue;"></div>
+						<div class="curcol" style="background-color: grey;"></div>
+						<div class="curcol" style="background-color: black;"></div>
+					</div>
+					<div class="aplcol" onclick="sendSettings();"><a>Сохранить</a></div>
+					<i style="color: #4b78bb;">*Не нажав кнопку Сохранить и перезагрузив страницу цвет фона не сохранится и вернется в предыдущее состояние!</i>
+				</div>
+				<div class="content">
+					<h3>Об авторе:</h3>
+					<div class="about">
+						<img src="http://public.superjob.ru/images/resume_fotos/607/18/24060718.large_8814b9b7a8d4af5a3ef9a76764036dfa.jpg">
+						<ul>
+							<li><div class="abt">Создатель:</div> Мудраков Андрей Вячеславович </li>
+							<li><div class="abt">Телефон:</div> 8 (965) 256-66-56 </li>
+							<li><div class="abt">Эл. почта:</div> silverxak@gmail.com </li>
+							<li><div class="abt">Резюме:</div> <a target="_blank" href="http://hh.ru/resume/426b936cff0191f2180039ed1f36573635734e">hh</a><a target="_blank" href="http://www.superjob.ru/resume/it-specialist-24060718.html">superjob</a> </li>
+							<li><div class="abt">Github:</div> <a target="_blank" href="https://github.com/Silverxak">Silverxak</a> </li>
+						</ul>					
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="footer">
+				<ul>
+					<li>
+						<div class="abt">Автор:</div> Мудраков Андрей Вячеславович
+					</li>
+					<li>
+						<div class="abt">Использовано:</div>
+						<div class="hcj"><a href="https://ru.wikipedia.org/wiki/HTML" target="_blank">html</a></div>
+						<div class="hcj"><a href="https://ru.wikipedia.org/wiki/CSS" target="_blank">css</a></div>
+						<div class="hcj" id="jquery"><a href="https://ru.wikipedia.org/wiki/JQuery" target="_blank">jQuery</a></div>
+					</li>
+				</ul>
+			</div>
+	</div>
+</body>
+</html>
