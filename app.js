@@ -4,6 +4,10 @@ var pattern
 
 $(document).ready(function(){  
 
+
+
+//----------tab-вкладки основного меню----------
+
 	$('ul.nav').each(function(){
 	$(this).find('li').each(function(i){
 		$(this).click(function(){
@@ -15,11 +19,21 @@ $(document).ready(function(){
 		});
 	});
 
+
+
+
+//----------подгружаем данные при включении приложения----------
+
 	$.getJSON('http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants', function(data){
 	  var i;
 	  for(i = 0; i < data.length; i++)
 	    $('<tr><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].surname + '</td><td><img src="delete.png" class="rm"><img src="edit.png" class="ed"></td></tr>').appendTo('#list');
 	});
+
+
+
+
+//----------обработчики событий кнопок удаления и редактирования----------
 
 	$(function(){
     $('table').on('click', '.rm', function(){
@@ -55,6 +69,10 @@ $(document).ready(function(){
 
 });
 
+
+
+//----------горячая проверка фамилии фамилия->паттерн / паттерн->фамилия----------
+
 	$(function(){
     $('#testpat').keyup(function(){
     	var pattern = new RegExp($('#pattern').val());
@@ -75,6 +93,10 @@ $(document).ready(function(){
     	});
 	});	
 
+
+
+
+//----------функция добавления соискателя----------
 
 function addMember(arg, uid){
 	if($('#fname').val() && $('#fsname').val()){
@@ -111,6 +133,10 @@ function addMember(arg, uid){
 	}	
 }
 
+
+
+//----------функция редактирования соискателя----------
+
 	function editMember(){
 		var fname = $('#fname').val();
     	var fsname = $('#fsname').val();
@@ -146,6 +172,10 @@ function addMember(arg, uid){
 		}
 	}
 
+
+
+//----------вызов диалога на добавление----------
+
 	function dialogNewMember(){
 		if($('#list tr:not(:has("th"))').length < 7){
 			$('#popup').show();
@@ -159,6 +189,10 @@ function addMember(arg, uid){
 	}
 
 
+
+
+//----------обработчик событияна изменение фона через настройки----------
+
 	$(function(){
 	    $('.setcol').on('click', '.curcol', function(){
 
@@ -167,6 +201,10 @@ function addMember(arg, uid){
 	});
 
 
+
+
+//----------сохраняем настройки----------
+
 	function sendSettings(){
 		var color = $('.gen').css('background-color');
 		var pattern = $('#pattern').val();
@@ -174,9 +212,17 @@ function addMember(arg, uid){
 			url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/settings",
 			type: "PUT",
 			ContentType: "application/json",
-			data: ({ background: color, validate: pattern})
+			data: ({ background: color, validate: pattern}),
+
+			success: function(){
+				$('#trsetmsg').show().text('Настройки успешно сохранены').fadeOut(3000);
+			}
 		});		
 	}
+
+
+
+//----------устанавливаем цвет при включении----------
 
 		$.ajax({
 		url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/settings",
@@ -188,12 +234,16 @@ function addMember(arg, uid){
 	});
 
 
+
+
+//----------устанавливаем паттерн при включении----------	
+	
 	$.ajax({
 		url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/settings",
 		type: "GET",
 		ContentType: "application/json",
-        success: function(resp){
-        	$('#pattern').val(resp.validate);
-        	pattern = new RegExp(resp.validate);
-        }
+	    success: function(resp){
+	    	$('#pattern').val(resp.validate);
+	    	pattern = new RegExp(resp.validate);
+	    }
 	});

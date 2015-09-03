@@ -236,6 +236,14 @@ left: 150px;
 display: none;       
 }  
 
+#trsetmsg{
+color: green;
+position: absolute;
+top: 20px;
+left: 300px; 
+display: none; 
+}
+
 
   #square {
     background: #dadada;
