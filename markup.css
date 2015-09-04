@@ -14,6 +14,22 @@ body{
 /*----------Settings----------*/
 
 
+.inline{
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;    
+}
+
+.flex{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;    
+}
+
 .setpat{
     display: inline-flex;
 }
@@ -34,7 +50,6 @@ body{
 }
 
 .setcol{
-    display: inline-flex;
     height: 100px;
     width: auto;
 }
@@ -261,6 +276,7 @@ display: none;
     height: 20px;
     border-radius: 20px;
     margin: auto;
+    -webkit-margin-end: 0;
 }
 
 .kubik.r{
@@ -361,8 +377,10 @@ li .abt{
     #dialog #errmsg{
         color: red;
         position: relative;
-        font-size: 16px;        bottom: 200px;
-        left: 60px;
+        position: relative;
+        font-size: 14px;
+        bottom: 200px;
+        left: 20px;
         display: none;
     }
     #dialog #btnFalse{

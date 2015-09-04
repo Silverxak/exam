@@ -125,7 +125,7 @@ function addMember(arg, uid){
 			});
 		}
 		else{
-			$('#errmsg').show().text('Невалидное фио, см. настройки->паттерн!');
+			$('#errmsg').show().text('Несоответствует паттерну: ' + pattern);
 		}
 	}
 	else{
@@ -222,7 +222,7 @@ function addMember(arg, uid){
 
 
 
-//----------устанавливаем цвет при включении----------
+//----------устанавливаем цвет при включении и паттерн----------
 
 		$.ajax({
 		url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/settings",
@@ -230,13 +230,15 @@ function addMember(arg, uid){
 		ContentType: "application/json",
         success: function(resp){
             $('.gen').css('background-color', resp.background);
+	    	$('#pattern').val(resp.validate);
+	    	pattern = new RegExp(resp.validate);
         }
 	});
 
 
 
 
-//----------устанавливаем паттерн при включении----------	
+/*//----------устанавливаем паттерн при включении----------	
 	
 	$.ajax({
 		url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/settings",
@@ -247,3 +249,4 @@ function addMember(arg, uid){
 	    	pattern = new RegExp(resp.validate);
 	    }
 	});
+*/

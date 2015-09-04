@@ -60,25 +60,19 @@
 				<div class="content">
 					<h3>Паттерн валидации ФИО:</h3>
 					<span id="trsetmsg"></span>
-					<div class="setpat">
+					<div class="inline setpat">
 						<div class="pattern">Паттерн:<input type="text" id="pattern"></div>
 						<div class="testpat">Проверка:<input type="text" id="testpat"></div>
 					</div>
-					<div style="display: inline-flex; margin-top: 15px;">
-						<div style="display: flex; margin-right: 100px;"><div class="kubik g"></div><i style="color: #4b78bb;"> - Валиден</i></div>
-						<div style="display: flex; margin-right: 100px;"><div class="kubik r"></div><i style="color: #4b78bb;"> - Невалиден</i></div>
+					<div style="margin-top: 15px;" class="inline">
+						<div style="margin-right: 100px;" class="flex"><div class="kubik g"></div><i style="color: #4b78bb;"> - Валиден</i></div>
+						<div style="margin-right: 100px;" class="flex"><div class="kubik r"></div><i style="color: #4b78bb;"> - Невалиден</i></div>
 					</div>
 					<h3>Цвет фона:</h3>
-					<div class="setcol">
-						<div class="curcol" style="background-color: white;"></div>
-						<div class="curcol" style="background-color: green;"></div>
-						<div class="curcol" style="background-color: yellow;"></div>
-						<div class="curcol" style="background-color: red;"></div>
-						<div class="curcol" style="background-color: purple;"></div>
-						<div class="curcol" style="background-color: orange;"></div>
-						<div class="curcol" style="background-color: blue;"></div>
-						<div class="curcol" style="background-color: grey;"></div>
-						<div class="curcol" style="background-color: black;"></div>
+					<div class="setcol inline">
+						<div class="curcol" style="background-color: #F5F5F5;"></div>
+						<div class="curcol" style="background-color: #C0C0C0;"></div>
+						<div class="curcol" style="background-color: #696969;"></div>
 					</div>
 					<div class="aplcol" onclick="sendSettings();"><a>Сохранить</a></div>
 					<i style="color: #4b78bb;">*Не нажав кнопку Сохранить и перезагрузив страницу цвет фона не сохранится и вернется в предыдущее состояние!</i>
@@ -88,11 +82,11 @@
 					<div class="about">
 						<img src="http://public.superjob.ru/images/resume_fotos/607/18/24060718.large_8814b9b7a8d4af5a3ef9a76764036dfa.jpg">
 						<ul>
-							<li><div class="abt">Создатель:</div> Мудраков Андрей Вячеславович </li>
-							<li><div class="abt">Телефон:</div> 8 (965) 256-66-56 </li>
-							<li><div class="abt">Эл. почта:</div> silverxak@gmail.com </li>
-							<li><div class="abt">Резюме:</div> <a target="_blank" href="http://hh.ru/resume/426b936cff0191f2180039ed1f36573635734e">hh</a><a target="_blank" href="http://www.superjob.ru/resume/it-specialist-24060718.html">superjob</a> </li>
-							<li><div class="abt">Github:</div> <a target="_blank" href="https://github.com/Silverxak">Silverxak</a> </li>
+							<li class="flex"><div class="abt">Создатель:</div> Мудраков Андрей Вячеславович </li>
+							<li class="flex"><div class="abt">Телефон:</div> 8 (965) 256-66-56 </li>
+							<li class="flex"><div class="abt">Эл. почта:</div> silverxak@gmail.com </li>
+							<li class="flex"><div class="abt">Резюме:</div> <a target="_blank" href="http://hh.ru/resume/426b936cff0191f2180039ed1f36573635734e">hh</a><a target="_blank" href="http://www.superjob.ru/resume/it-specialist-24060718.html">superjob</a> </li>
+							<li class="flex"><div class="abt">Github:</div> <a target="_blank" href="https://github.com/Silverxak">Silverxak</a> </li>
 						</ul>					
 					</div>
 				</div>
@@ -100,10 +94,10 @@
 		</div>
 			<div class="footer">
 				<ul>
-					<li>
+					<li class="flex">
 						<div class="abt">Автор:</div> Мудраков Андрей Вячеславович
 					</li>
-					<li>
+					<li class="flex">
 						<div class="abt">Использовано:</div>
 						<div class="hcj"><a href="https://ru.wikipedia.org/wiki/HTML" target="_blank">html</a></div>
 						<div class="hcj"><a href="https://ru.wikipedia.org/wiki/CSS" target="_blank">css</a></div>
