@@ -108,7 +108,7 @@ function addMember(arg, uid){
 	if($('#fname').val() && $('#fsname').val()){
 		var fname = $('#fname').val();
 		var fsname = $('#fsname').val();
-		if(pattern.test($('#fsname').val()) && pattern.test($('#fsname').val())){
+		if(pattern.test($('#fname').val()) && pattern.test($('#fsname').val())){
 			$.ajax({
 				url: "http://applicants-tenet.rhcloud.com/api/1/Silverxak/applicants",
 				type: "POST",
@@ -133,10 +133,14 @@ function addMember(arg, uid){
 			});
 		}
 		else{
-			if(!(pattern.test($('#fsname').val())))
-				$('#errmsg').show().text('Некорр. ф-я паттерн: ' + pattern);
-			if(!(pattern.test($('#fname').val())))
-				$('#errmsg').show().text('Некорр. имя паттерн: ' + pattern);
+			if(!(pattern.test($('#fsname').val()))){
+				$('#errmsg').show().text('Некорректная фамилия!');
+				alert('паттерн: ' + pattern);
+			}
+			else if(!(pattern.test($('#fname').val()))){
+				$('#errmsg').show().text('Некорректное имя!');
+				alert('паттерн: ' + pattern);				
+			}
 		}
 	}
 	else{
@@ -178,10 +182,14 @@ function addMember(arg, uid){
 				});
 			}
 			else{
-				if(!(pattern.test($('#fsname').val())))
-					$('#errmsg').show().text('Некорр. ф-я паттерн: ' + pattern);
-				if(!(pattern.test($('#fname').val())))
-					$('#errmsg').show().text('Некорр. имя паттерн: ' + pattern);
+				if(!(pattern.test($('#fsname').val()))){
+					$('#errmsg').show().text('Некорректная фамилия!');
+					alert('паттерн: ' + pattern);
+				}
+				else if(!(pattern.test($('#fname').val()))){
+					$('#errmsg').show().text('Некорректное имя!');
+					alert('паттерн: ' + pattern);				
+				}
 			}
 		}
 		else{
