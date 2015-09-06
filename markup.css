@@ -6,9 +6,15 @@ li{
     list-style: none;
 }
 
+
 body{
-    footwidth: 800px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url(texture.png);
+    background-repeat: repeat;
+    position: absolute;
+    background-size: 100%;
 }
 
 /*----------Settings----------*/
@@ -31,7 +37,6 @@ body{
 }
 
 .setpat{
-    display: inline-flex;
 }
 
 .setpat div{
@@ -42,10 +47,9 @@ body{
 
 .setpat input{
     border-radius: 5px;
+    width: 100%;
     color: #4d59a1;
-    height: 24px;
     font-size: 24px;
-    width: 200px;
     outline: none;    
 }
 
@@ -93,10 +97,9 @@ body{
 /*----------Header----------*/
 
 .gen{
-    position: absolute;
-    width: 800px;
-    height: 680px;
-    background-image: url(texture.png);
+    width: 100%;
+    height: 100%;
+
 }
 
 #logo{
@@ -115,7 +118,7 @@ body{
 }
 
 .header{
-	width: 800px;
+	width: 100%;
 	height: 60px;
 	background: #dadada;
 	opacity: 0.7;
@@ -130,7 +133,7 @@ body{
 	}
 
 .brd{
-	width: 800px;
+	width: 100%;
 	height: 10px;
 	background: #dadada;
 }
@@ -155,13 +158,8 @@ body{
 
 
 .footer{
-    width: 800px;
-    height: 90px;
-    margin-top: 340px;
 }
 .footer ul{
-    margin-top: 110px;;
-    position: absolute;
     padding-left: 20px;
 }
 
@@ -204,7 +202,7 @@ ul.nav {
    }
 
    ul.nav li {
-    margin: 5px -2px -3px -5px;
+    margin: 5px -4px -3px 0px;
     list-style:none;
     display:inline-block;
     background: #dadada;
@@ -244,17 +242,16 @@ ul.nav {
   }
 
 #trmsg{
-color: green;
-position: absolute;
-top: 20px;
-left: 150px; 
-display: none;       
+    color: green;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    display: none;       
 }  
 
 #trsetmsg{
 color: green;
 position: absolute;
-top: 20px;
 left: 300px; 
 display: none; 
 }
@@ -263,10 +260,7 @@ display: none;
   #square {
     background: #dadada;
     border: 3px white solid;
-    width: 750px;
-    height: 440px;
-    position: absolute;
-    left: 15px;
+    height: auto;
     border-bottom-right-radius: 20px;
 }
 
@@ -296,7 +290,7 @@ display: none;
 #list{
   border-collapse: collapse;
   margin-top: 5px;
-  width: 700px;
+  width: 100%;
 }
 
     #list tr th{
@@ -335,9 +329,6 @@ display: none;
 }
 
 .about ul{
-    float: right;
-    margin-right: 130px;
-    position: relative;
     margin-top: 10px;
 }
 
@@ -357,9 +348,9 @@ li .abt{
 }
 
 #lock{
-    width: 800px;
-    height: 680px;
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     background-color: white;
     opacity: 0.5;
     z-index: 1;
